@@ -40,11 +40,11 @@ namespace RepeatCounter.Objects
       RepeatCounter newRepeatCounter = new RepeatCounter();
       Assert.Equal(2, newRepeatCounter.CountRepeats("the 'cat' cat.", "cat"));
     }
-    // [Fact]
-    // public void CountRepeats_AllFullMatches_3()
-    // {
-    //   RepeatCounter newRepeatCounter = new RepeatCounter();
-    //   Assert.Equal(2, newRepeatCounter.CountRepeats("cat by the cat", "cat"));
-    // }
+    [Fact]
+    public void CountRepeats_AllFullMatches_3()
+    {
+      RepeatCounter newRepeatCounter = new RepeatCounter();
+      Assert.Equal(2, newRepeatCounter.CountRepeats("cat by the cat", "cat"));
+    }
   }
 }
