@@ -34,12 +34,12 @@ namespace RepeatCounter.Objects
       RepeatCounter newRepeatCounter = new RepeatCounter();
       Assert.Equal(1, newRepeatCounter.CountRepeats("the scatter cat cathedral building", "cat"));
     }
-    // [Fact]
-    // public void CountRepeats_PunctuatedFullMatches_2()
-    // {
-    //   RepeatCounter newRepeatCounter = new RepeatCounter();
-    //   Assert.Equal(2, newRepeatCounter.CountRepeats("the 'cat' cat.", "cat"));
-    // }
+    [Fact]
+    public void CountRepeats_PunctuatedFullMatches_2()
+    {
+      RepeatCounter newRepeatCounter = new RepeatCounter();
+      Assert.Equal(2, newRepeatCounter.CountRepeats("the 'cat' cat.", "cat"));
+    }
     // [Fact]
     // public void CountRepeats_AllFullMatches_3()
     // {
