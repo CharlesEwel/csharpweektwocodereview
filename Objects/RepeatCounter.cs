@@ -11,7 +11,7 @@ namespace RepeatCounter.Objects
     {
       int numberOfRepeats=0;
       char[] stringArray = inputString.ToCharArray();
-      char[] wordArray = inputWord.ToCharArray();
+      char[] wordArray = (" "+inputWord+" ").ToCharArray();
       for(int i=0; i<=(stringArray.Length - wordArray.Length); i++)
       {
         if(stringArray[i] == wordArray[0])
