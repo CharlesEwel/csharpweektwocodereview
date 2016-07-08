@@ -27,10 +27,9 @@ namespace RepeatCount.Objects
       }
       else
       {
-        bool isStartOfWord = true;
         for(int i=0; i<=(stringArray.Length - wordArray.Length); i++)
         {
-          if(isStartOfWord && stringArray[i] == wordArray[0])
+          if(stringArray[i] == wordArray[0])
           {
             bool matches = true;
             for(int j=1; j<wordArray.Length; j++)
@@ -40,19 +39,12 @@ namespace RepeatCount.Objects
                 matches=false;
               }
             }
+            bool isStartOfWord = (i==0) || !unapprovedSurrounders.Contains(Char.ToLower(stringArray[i-1]));
             bool isEndOfWord = ((i+wordArray.Length)==stringArray.Length) || !unapprovedSurrounders.Contains(Char.ToLower(stringArray[i+wordArray.Length]));
-            if(matches && isEndOfWord)
+            if(isStartOfWord && matches && isEndOfWord)
             {
               numberOfRepeats+=1;
             }
-          }
-          if(unapprovedSurrounders.Contains(Char.ToLower(stringArray[i])))
-          {
-            isStartOfWord=false;
-          }
-          else if(stringArray[i]==' ')
-          {
-            isStartOfWord=true;
           }
         }
         return numberOfRepeats;
