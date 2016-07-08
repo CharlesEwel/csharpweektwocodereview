@@ -13,7 +13,8 @@ namespace RepeatCount
       Post["/count_repeats"] = _ => {
         RepeatCounter newRepeatCounter = new RepeatCounter();
         int repeats = newRepeatCounter.CountRepeats(Request.Form["search-string"], Request.Form["search-word"]);
-        return View["result.cshtml", repeats];
+        string repeatDisplay = newRepeatCounter.DisplayNumberOfRepeats(repeats);
+        return View["result.cshtml", repeatDisplay];
       };
     }
   }

@@ -58,5 +58,16 @@ namespace RepeatCount.Objects
         return numberOfRepeats;
       }
     }
+    public string DisplayNumberOfRepeats(int repeats)
+    {
+      if(repeats==-1)
+      {
+        return "Sorry, but your search term was invalid. It may consist only of letters and numbers (this means no spaces). Please try again.";
+      }
+      else
+      {
+        return "There were " + repeats + " matches for your search term in the given string.";
+      }
+    }
   }
 }
