@@ -12,17 +12,23 @@ namespace RepeatCounter.Objects
       int numberOfRepeats=0;
       char[] stringArray = inputString.ToCharArray();
       char[] wordArray = inputWord.ToCharArray();
-      bool matches = true;
-      for(int i=0; i<stringArray.Length; i++)
+      for(int i=0; i<=(stringArray.Length - wordArray.Length); i++)
       {
-        if(stringArray[i] != wordArray[i])
+        if(stringArray[i] == wordArray[0])
         {
-          matches=false;
+          bool matches = true;
+          for(int j=1; j<wordArray.Length; j++)
+          {
+            if(stringArray[i+j] != wordArray[j])
+            {
+              matches=false;
+            }
+          }
+          if(matches)
+          {
+            numberOfRepeats+=1;
+          }
         }
-      }
-      if(matches)
-      {
-        numberOfRepeats+=1;
       }
       return numberOfRepeats;
     }
