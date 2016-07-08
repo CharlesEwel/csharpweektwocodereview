@@ -3,7 +3,7 @@ using Nancy;
 using System;
 using System.Collections.Generic;
 
-namespace RepeatCounter.Objects
+namespace RepeatCount.Objects
 {
   public class RepeatCounter
   {
@@ -56,7 +56,7 @@ namespace RepeatCounter.Objects
           }
         }
         return numberOfRepeats;
-      }  
+      }
     }
   }
 }
