@@ -9,8 +9,22 @@ namespace RepeatCounter.Objects
   {
     public int CountRepeats(string inputString, string inputWord)
     {
-      // eventually your code will go here
-      return 0;
+      int numberOfRepeats=0;
+      char[] stringArray = inputString.ToCharArray();
+      char[] wordArray = inputWord.ToCharArray();
+      bool matches = true;
+      for(int i=0; i<stringArray.Length; i++)
+      {
+        if(stringArray[i] != wordArray[i])
+        {
+          matches=false;
+        }
+      }
+      if(matches)
+      {
+        numberOfRepeats+=1;
+      }
+      return numberOfRepeats;
     }
   }
 }

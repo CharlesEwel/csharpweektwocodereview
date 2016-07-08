@@ -6,15 +6,15 @@ namespace RepeatCounter.Objects
     [Fact]
     public void CountRepeats_TotalMismatch_0()
     {
-      // RepeatCounter newRepeatCounter = new RepeatCounter();
-      // Assert.Equal(0, newRepeatCounter.CountRepeats("the cat in the cathedral", "dog"));
+      RepeatCounter newRepeatCounter = new RepeatCounter();
+      Assert.Equal(0, newRepeatCounter.CountRepeats("cat", "dog"));
     }
-    // [Fact]
-    // public void CountRepeats_ExactMatch_1()
-    // {
-    //   RepeatCounter newRepeatCounter = new RepeatCounter();
-    //   Assert.Equal(1, newRepeatCounter.CountRepeats("cat", "cat"));
-    // }
+    [Fact]
+    public void CountRepeats_ExactMatch_1()
+    {
+      RepeatCounter newRepeatCounter = new RepeatCounter();
+      Assert.Equal(1, newRepeatCounter.CountRepeats("cat", "cat"));
+    }
     // [Fact]
     // public void CountRepeats_AllMatches_2()
     // {
