@@ -46,5 +46,11 @@ namespace RepeatCounter.Objects
       RepeatCounter newRepeatCounter = new RepeatCounter();
       Assert.Equal(1, newRepeatCounter.CountRepeats("scat cat cats", "cat"));
     }
+    [Fact]
+    public void CountRepeats_Validation_Negative1()
+    {
+      RepeatCounter newRepeatCounter = new RepeatCounter();
+      Assert.Equal(-1, newRepeatCounter.CountRepeats("scat cat cats", "cat dog"));
+    }
   }
 }

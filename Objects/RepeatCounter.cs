@@ -13,35 +13,50 @@ namespace RepeatCounter.Objects
       int numberOfRepeats=0;
       char[] stringArray = inputString.ToCharArray();
       char[] wordArray = (inputWord).ToCharArray();
-      bool isStartOfWord = true;
-      for(int i=0; i<=(stringArray.Length - wordArray.Length); i++)
+      bool isWordValid=true;
+      for(int i=0; i<wordArray.Length; i++)
       {
-        if(isStartOfWord && stringArray[i] == wordArray[0])
+        if(!unapprovedSurrounders.Contains(Char.ToLower(wordArray[i])))
         {
-          bool matches = true;
-          for(int j=1; j<wordArray.Length; j++)
-          {
-            if(stringArray[i+j] != wordArray[j])
-            {
-              matches=false;
-            }
-          }
-          bool isEndOfWord = ((i+wordArray.Length)==stringArray.Length) || !unapprovedSurrounders.Contains(Char.ToLower(stringArray[i+wordArray.Length]));
-          if(matches && isEndOfWord)
-          {
-            numberOfRepeats+=1;
-          }
-        }
-        if(unapprovedSurrounders.Contains(Char.ToLower(stringArray[i])))
-        {
-          isStartOfWord=false;
-        }
-        else if(stringArray[i]==' ')
-        {
-          isStartOfWord=true;
+          isWordValid=false;
         }
       }
-      return numberOfRepeats;
+      if(!isWordValid)
+      {
+        return -1;
+      }
+      else
+      {
+        bool isStartOfWord = true;
+        for(int i=0; i<=(stringArray.Length - wordArray.Length); i++)
+        {
+          if(isStartOfWord && stringArray[i] == wordArray[0])
+          {
+            bool matches = true;
+            for(int j=1; j<wordArray.Length; j++)
+            {
+              if(stringArray[i+j] != wordArray[j])
+              {
+                matches=false;
+              }
+            }
+            bool isEndOfWord = ((i+wordArray.Length)==stringArray.Length) || !unapprovedSurrounders.Contains(Char.ToLower(stringArray[i+wordArray.Length]));
+            if(matches && isEndOfWord)
+            {
+              numberOfRepeats+=1;
+            }
+          }
+          if(unapprovedSurrounders.Contains(Char.ToLower(stringArray[i])))
+          {
+            isStartOfWord=false;
+          }
+          else if(stringArray[i]==' ')
+          {
+            isStartOfWord=true;
+          }
+        }
+        return numberOfRepeats;
+      }  
     }
   }
 }
