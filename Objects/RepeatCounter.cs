@@ -26,11 +26,7 @@ namespace RepeatCounter.Objects
               matches=false;
             }
           }
-          bool isEndOfWord = true;
-          if((i+wordArray.Length)<stringArray.Length)
-          {
-            isEndOfWord = !unapprovedSurrounders.Contains(stringArray[i+wordArray.Length]);
-          }
+          bool isEndOfWord = ((i+wordArray.Length)==stringArray.Length)||!unapprovedSurrounders.Contains(stringArray[i+wordArray.Length]);
           if(matches && isEndOfWord)
           {
             numberOfRepeats+=1;
